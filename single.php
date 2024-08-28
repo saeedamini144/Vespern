@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<section class=" title-header p-5">
+<section class=" title-header pl-5 ps-3">
     <div class="container">
         <h1><?php the_title(); ?></h1>
         <?php
