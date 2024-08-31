@@ -42,7 +42,7 @@ get_header();
                 while ($query->have_posts()) {
                     $query->the_post();
                     // نمایش محتوای پست
-                    get_template_part('template-parts/blogtemplate', 'archive');
+                    get_template_part('template-parts/portfoliocard', 'archive');
                 }
                 // بازگرداندن داده‌های پست به حالت اولیه
                 wp_reset_postdata();
