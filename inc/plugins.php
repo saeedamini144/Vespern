@@ -62,7 +62,7 @@ function vespern_register_required_plugins()
 		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		array(
 			'name'      => 'Yoast SEO',
-			'slug'      => 'https://wordpress.org/plugins/wordpress-seo/',
+			'slug'      => 'wordpress-seo',
 			'required'  => true,
 		),
 
