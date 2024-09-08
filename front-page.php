@@ -2,6 +2,7 @@
 get_header();
 $sitetitle = fw_get_db_settings_option('sitetitle');
 $first_section_text = fw_get_db_settings_option('first-section-text');
+$first_section_text = fw_get_db_settings_option('text_1'); //for use the customizer theme panel settings
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">

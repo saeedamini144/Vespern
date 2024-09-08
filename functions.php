@@ -7,6 +7,13 @@ function theme_support_vesperr()
 }
 add_action("after_setup_theme", "theme_support_vesperr");
 
+//add tgm
+
+require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+require_once get_template_directory() . '/inc/plugins.php';
+
+//add tgm
+
 // unyson framwork
 if (! defined('FW')) {
     require_once get_template_directory() . '/inc/unyson/framework/bootstrap.php';
