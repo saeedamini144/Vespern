@@ -42,6 +42,12 @@ $options = array(
 						'type'  => 'text',
 						// 'value' => get_bloginfo( 'name' )
 						'value' => 'Grow your Business'
+					),
+					'first-section-text' => array(
+						'label' => __('write the text', 'unyson'),
+						'desc' => __('write your text here'),
+						'type' => 'textarea',
+						'value' => 'Loram ipsum'
 					)
 				)
 			),
