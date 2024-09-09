@@ -27,30 +27,30 @@
 // 		)
 // 	)
 // );
-$options = array(
-	'general' => array(
-		'title'   => __('General Setting of the main page', 'unyson'),
-		'type'    => 'tab',
-		'options' => array(
-			'general-box' => array(
-				'title'   => __('General Settings', 'unyson'),
-				'type'    => 'box',
-				'options' => array(
-					'sitetitle'    => array(
-						'label' => __('title', 'unyson'),
-						'desc'  => __('Write your website first section title', 'unyson'),
-						'type'  => 'text',
-						// 'value' => get_bloginfo( 'name' )
-						'value' => 'Grow your Business'
-					),
-					'first-section-text' => array(
-						'label' => __('write the text', 'unyson'),
-						'desc' => __('write your text here'),
-						'type' => 'textarea',
-						'value' => 'Loram ipsum'
-					)
-				)
-			),
-		)
-	)
-);
+// $options = array(
+// 	'general' => array(
+// 		'title'   => __('General Setting of the main page', 'unyson'),
+// 		'type'    => 'tab',
+// 		'options' => array(
+// 			'general-box' => array(
+// 				'title'   => __('General Settings', 'unyson'),
+// 				'type'    => 'box',
+// 				'options' => array(
+// 					'sitetitle'    => array(
+// 						'label' => __('title', 'unyson'),
+// 						'desc'  => __('Write your website first section title', 'unyson'),
+// 						'type'  => 'text',
+// 						// 'value' => get_bloginfo( 'name' )
+// 						'value' => 'Grow your Business'
+// 					),
+// 					'first-section-text' => array(
+// 						'label' => __('write the text', 'unyson'),
+// 						'desc' => __('write your text here'),
+// 						'type' => 'textarea',
+// 						'value' => 'Loram ipsum'
+// 					)
+// 				)
+// 			),
+// 		)
+// 	)
+// );

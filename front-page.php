@@ -1,8 +1,11 @@
 <?php
 get_header();
-$sitetitle = fw_get_db_settings_option('sitetitle');
-$first_section_text = fw_get_db_settings_option('first-section-text');
-$first_section_text = fw_get_db_settings_option('text_1'); //for use the customizer theme panel settings
+// $sitetitle = fw_get_db_settings_option('sitetitle');//the code for call back the theme setting with the main panel not the customizer
+$first_section_title = fw_get_db_customizer_option('first_section_title');
+$first_section_text = fw_get_db_customizer_option('first_section_text'); //for use the customizer theme panel settings
+$first_section_button = fw_get_db_customizer_option('first_section_button');
+$first_section_button_link =  fw_get_db_customizer_option('first_section_button_link');
+$first_section_image = fw_get_db_customizer_option('first_section_image');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -10,14 +13,16 @@ $first_section_text = fw_get_db_settings_option('text_1'); //for use the customi
     <div class="container">
         <div class="row">
             <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up"><?php echo $sitetitle ?></h1>
+                <h1 data-aos="fade-up"><?php echo $first_section_title ?></h1>
                 <h2 data-aos="fade-up" data-aos-delay="400"><?php echo $first_section_text ?></h2>
                 <div data-aos="fade-up" data-aos-delay="800">
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <a href="<?php echo $first_section_button_link ?>" class="btn-get-started scrollto"><?php echo $first_section_button ?></a>
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-                <img src="<?php echo get_theme_file_uri('/assets/img/hero-img.png'); ?>" class="img-fluid animated" alt="">
+                <img src="<?php echo $first_section_image['url'];
+                            // var_dump($first_section_image) 
+                            ?>" class="img-fluid animated" alt="">
             </div>
         </div>
     </div>
