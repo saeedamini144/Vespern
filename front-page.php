@@ -6,6 +6,7 @@ $first_section_text = fw_get_db_customizer_option('first_section_text'); //for u
 $first_section_button = fw_get_db_customizer_option('first_section_button');
 $first_section_button_link =  fw_get_db_customizer_option('first_section_button_link');
 $first_section_image = fw_get_db_customizer_option('first_section_image');
+$client_logo = fw_get_db_customizer_option('client_logo');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -36,31 +37,21 @@ $first_section_image = fw_get_db_customizer_option('first_section_image');
         <div class="container">
 
             <div class="row">
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/clients/client-1.png" class="img-fluid" alt="" data-aos="zoom-in">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/clients/client-2.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/clients/client-3.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/clients/client-4.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/clients/client-5.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/clients/client-6.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
-                </div>
-
+                <?php
+                if (!empty($client_logo)) { // بررسی اینکه لوگوها وجود دارند
+                    foreach ($client_logo as $logo) {
+                        if (!empty($logo['url'])) { // اطمینان از اینکه URL لوگو معتبر است
+                ?>
+                            <div class="col-lg-2 col-md-4 col-6">
+                                <img src="<?php echo esc_url($logo['url']); ?>" class="img-fluid" alt="" data-aos="zoom-in">
+                            </div>
+                <?php
+                        }
+                    }
+                } else {
+                    echo 'No logo found'; // پیام به‌جای خطا و لود نشدن سایت
+                }
+                ?>
             </div>
 
         </div>

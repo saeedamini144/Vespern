@@ -56,6 +56,8 @@
 //         ),
 //     ),
 // );
+
+
 $options = array(
     'panel_1' => array(
         'title' => __('Home edite', '{domain}'),
@@ -102,7 +104,7 @@ $options = array(
                         // 'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
                         'label' => 'upload your image',
                         'desc'  => 'Upload the banner of the main page',
-                        'help'  => __('Help tip', '{domain}'),
+                        'help'  => __('Upload the image for the first section best size 578*430', '{domain}'),
                         /**
                          * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
                          * If set to `false`, the option will allow to upload any file from the media library.
@@ -120,8 +122,29 @@ $options = array(
                      */
                         // 'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
                     ),
+                    'client_logo' => array(
+                        'type' => 'addable-option',
+                        'value' => array('value1'),
+                        // 'attr' => array('class' => 'customclass', 'id' => 'test'),
+                        'label' => __('add the client logo', '{domanin}'),
+                        'desc' => __('add image size 150*150', '{domain}'),
+                        'help' => __('png transparent 150*150px', '{domain}'),
+                        'option' => array(
+                            'type' => 'upload',
+                            'images_only' => true,
+                        ),
+                        // 'option' => array('type' => 'text'),
+                        'add-button-text' => __('Add image', '{domain}'),
+                        'sortable' => true,
+
+                    ),
                 )
             )
         )
     )
 );
+// $wp_customize->add_setting('client_logo', array(
+//     'default' => '',
+//     'transport' => 'postMessage', // برای بروزرسانی فوری بدون رفرش
+//     'sanitize_callback' => 'esc_url_raw', // اطمینان از پاکسازی URL
+// ));
