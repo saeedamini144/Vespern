@@ -7,6 +7,11 @@ $first_section_button = fw_get_db_customizer_option('first_section_button');
 $first_section_button_link =  fw_get_db_customizer_option('first_section_button_link');
 $first_section_image = fw_get_db_customizer_option('first_section_image');
 $client_logo = fw_get_db_customizer_option('client_logo');
+$aboutus_section_title = fw_get_db_customizer_option('aboutus_section_title');
+$about_section_right_text = fw_get_db_customizer_option('about_section_right_text');
+$about_section_left_text = fw_get_db_customizer_option('about_section_left_text');
+$about_section_button = fw_get_db_customizer_option('about_section_button');
+$about_section_button_link = fw_get_db_customizer_option('about_section_button_link');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -62,14 +67,13 @@ $client_logo = fw_get_db_customizer_option('client_logo');
         <div class="container">
 
             <div class="section-title" data-aos="fade-up">
-                <h2>About Us</h2>
+                <h2><?php echo $aboutus_section_title ?></h2>
             </div>
 
             <div class="row content">
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        <?php echo $about_section_left_text ?>
                     </p>
                     <ul>
                         <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
@@ -79,11 +83,9 @@ $client_logo = fw_get_db_customizer_option('client_logo');
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
+                        <?php echo $about_section_right_text ?>
                     </p>
-                    <a href="#" class="btn-learn-more">Learn More</a>
+                    <a href="<?php echo esc_url($about_section_button_link) ?>" class="btn-learn-more"><?php echo $about_section_button ?></a>
                 </div>
             </div>
 

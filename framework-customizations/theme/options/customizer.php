@@ -1,150 +1,95 @@
-<?php
-// $options = array(
-//     'section_1' => array(
-//         'title' => __('First Section', '{domain}'),
-//         'options' => array(
-
-//             'text_1' => array(
-//                 'type' => 'text',
-//                 'value' => 'Default Value',
-//                 'label' => __('Unyson Option', '{domain}'),
-//                 'desc' => __('Option Description', '{domain}'),
-//             ),
-
-//         ),
-//     ),
-// );
-// $options = array(
-//     'panel_1' => array(
-//         'title' => __('Unyson Panel', '{domain}'),
-//         'options' => array(
-
-//             'section_1' => array(
-//                 'title' => __('Unyson Section #1', '{domain}'),
-//                 'options' => array(
-
-//                     'option_1' => array(
-//                         'type' => 'text',
-//                         'value' => 'Default Value',
-//                         'label' => __('Unyson Option #1', '{domain}'),
-//                         'desc' => __('Option Description', '{domain}'),
-//                     ),
-
-//                 ),
-//             ),
-
-//             'section_2' => array(
-//                 'title' => __('Unyson Section #2', '{domain}'),
-//                 'options' => array(
-
-//                     'option_2' => array(
-//                         'type' => 'text',
-//                         'value' => 'Default Value',
-//                         'label' => __('Unyson Option #2', '{domain}'),
-//                         'desc' => __('Option Description', '{domain}'),
-//                     ),
-//                     'option_3' => array(
-//                         'type' => 'text',
-//                         'value' => 'Default Value',
-//                         'label' => __('Unyson Option #3', '{domain}'),
-//                         'desc' => __('Option Description', '{domain}'),
-//                     ),
-
-//                 ),
-//             ),
-
-//         ),
-//     ),
-// );
-
-
-$options = array(
-    'panel_1' => array(
-        'title' => __('Home edite', '{domain}'),
-
-        'options' => array(
-            'first_section' => array(
-                'title' => __('First section', '{domain}'),
-                'options' => array(
-
-                    'first_section_title' => array(
-                        'label' => 'Change The main title',
-                        'type' => 'text',
-                        'value' => 'we Help you to improve your bussines',
-                        'desc' => 'write your header title here'
-                    ),
-                    'first_section_text' => array(
-                        'label' => 'Change The text under the title',
-                        'type' => 'wp-editor',
-                        'value' => 'we Help you to improve your bussines',
-                        'desc' => 'write your header title here'
-                    ),
-                    'first_section_button' => array(
-                        'label' => 'Button name',
-                        'type' => 'text',
-                        'value' => 'Call us',
-                        'desc' => " change the button name"
-                    ),
-                    'first_section_button_link' => array(
-                        'label' => 'Button Link',
-                        'type' => 'text',
-                        'value' => '#',
-                        'desc' => " change the button Link"
-                    ),
-                    'first_section_image' => array(
-                        'type'  => 'upload',
-                        'value' => array(
-                            /*
-                            'attachment_id' => '9',
-                            'url' => '//site.com/wp-content/uploads/2014/02/whatever.jpg'
-                            */
-                            // if value is set in code, it is not considered and not used
-                            // because there is no sense to set hardcode attachment_id
+ <?php
+    $options = array(
+        'panel_1' => array(
+            'title' => __('Home edit', '{domain}'),
+            'options' => array(
+                'first_section' => array(
+                    'title' => __('First section', '{domain}'),
+                    'options' => array(
+                        'first_section_title' => array(
+                            'label' => 'Change The main title',
+                            'type' => 'text',
+                            'value' => 'We Help you to improve your business',
+                            'desc' => 'Write your header title here'
                         ),
-                        // 'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
-                        'label' => 'upload your image',
-                        'desc'  => 'Upload the banner of the main page',
-                        'help'  => __('Upload the image for the first section best size 578*430', '{domain}'),
-                        /**
-                         * If set to `true`, the option will allow to upload only images, and display a thumb of the selected one.
-                         * If set to `false`, the option will allow to upload any file from the media library.
-                         */
-                        'images_only' => true,
-                        /**
-                     * An array with allowed files extensions what will filter the media library and the upload files.
-                     */
-                        // 'files_ext' => array( 'doc', 'pdf', 'zip' ),
-                        /**
-                     * An array with extra mime types that is not in the default array with mime types from the javascript Plupload library.
-                     * The format is: array( '<mime-type>, <ext1> <ext2> <ext2>' ).
-                     * For example: you set rar format to filter, but the filter ignore it , than you must set
-                     * the array with the next structure array( '.rar, rar' ) and it will solve the problem.
-                     */
-                        // 'extra_mime_types' => array( 'audio/x-aiff, aif aiff' )
-                    ),
-                    'client_logo' => array(
-                        'type' => 'addable-option',
-                        'value' => array('value1'),
-                        // 'attr' => array('class' => 'customclass', 'id' => 'test'),
-                        'label' => __('add the client logo', '{domanin}'),
-                        'desc' => __('add image size 150*150', '{domain}'),
-                        'help' => __('png transparent 150*150px', '{domain}'),
-                        'option' => array(
+                        'first_section_text' => array(
+                            'label' => 'Change The text under the title',
+                            'type' => 'wp-editor',
+                            'value' => 'We Help you to improve your business',
+                            'desc' => 'Write your text here'
+                        ),
+                        'first_section_button' => array(
+                            'label' => 'Button name',
+                            'type' => 'text',
+                            'value' => 'Call us',
+                            'desc' => 'Change the button name'
+                        ),
+                        'first_section_button_link' => array(
+                            'label' => 'Button Link',
+                            'type' => 'text',
+                            'value' => '#',
+                            'desc' => 'Change the button link'
+                        ),
+                        'first_section_image' => array(
                             'type' => 'upload',
-                            'images_only' => true,
+                            'value' => array(),
+                            'label' => 'Upload your image',
+                            'desc' => 'Upload the banner of the main page',
+                            'help' => __('Upload the image for the first section. Best size: 578x430', '{domain}'),
+                            'images_only' => true
                         ),
-                        // 'option' => array('type' => 'text'),
-                        'add-button-text' => __('Add image', '{domain}'),
-                        'sortable' => true,
+                        'client_logo' => array(
+                            'type' => 'addable-option',
+                            'value' => array(),
+                            'label' => __('Add the client logo', '{domain}'),
+                            'desc' => __('Add image size 150x150', '{domain}'),
+                            'help' => __('PNG transparent 150x150px', '{domain}'),
+                            'option' => array(
+                                'type' => 'upload',
+                                'images_only' => true
+                            ),
+                            'add-button-text' => __('Add image', '{domain}'),
+                            'sortable' => true
+                        )
+                    )
+                ),
+                // حذف تعریف اضافی options
+                'aboutus_section' => array(
+                    'title' => __('About Us Section', '{domain}'),
+                    'options' => array(
 
+                        'aboutus_section_title' => array(
+                            'label' => 'Change The main title',
+                            'type' => 'text',
+                            'value' => 'About Us',
+                            'desc' => 'You can change the section title'
+                        ),
+                        'about_section_right_text' => array(
+                            'label' => 'Chenge the text of the right text',
+                            'type' => 'wp-editor',
+                            'value' => '',
+                            'desc' => 'Write your text here',
+                        ),
+                        'about_section_button' => array(
+                            'label' => 'Change button text',
+                            'type' => 'text',
+                            'value' => 'Leran More',
+                            'desc' => 'You can change button name'
+                        ),
+                        'about_section_button_link' => array(
+                            'label' => 'Change button link',
+                            'type' => 'text',
+                            'value' => '#',
+                            'desc' => 'You can change button link'
+                        ),
+                        'about_section_left_text' => array(
+                            'label' => 'change the text of the left text',
+                            'type' => 'wp-editor',
+                            'value' => '',
+                            'desc' => 'write the text here'
+                        )
                     ),
                 )
             )
         )
-    )
-);
-// $wp_customize->add_setting('client_logo', array(
-//     'default' => '',
-//     'transport' => 'postMessage', // برای بروزرسانی فوری بدون رفرش
-//     'sanitize_callback' => 'esc_url_raw', // اطمینان از پاکسازی URL
-// ));
+    );
