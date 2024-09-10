@@ -88,16 +88,47 @@
                             'value' => '',
                             'desc' => 'write the text here'
                         ),
+                        // 'about_section_item' => array(
+                        //     'label' => __('add text item', '{domain}'),
+                        //     'value' => array('default_value'),
+                        //     'desc' => __('write the text', '{domain}'),
+                        //     'help' => __('add icon too', '{domain}'),
+                        //     'type' => 'addable-option',
+                        //     'option' => array(
+                        //         'type' => 'text',
+                        //     ),
+                        //     'add-button-text' => __('Add input', '{domain}'),
+                        //     'sortable' => true,
+                        // ),
                         'about_section_item' => array(
-                            'label' => __('add text item', '{domain}'),
-                            'value' => array(null),
-                            'desc' => __('write the text', '{domain}'),
-                            'help' => __('add icon too', '{domain}'),
-                            'type' => 'addable-option',
-                            'option' => array(
-                                'type' => 'text',
+                            // 'attr'  => array('class' => 'custom-class', 'data-foo' => 'bar'),
+                            'label' => __('add item ', '{domain}'),
+                            'desc'  => __('add icon and text', '{domain}'),
+                            'help'  => __('use boxicons, remixicon, bootstrap-icons', '{domain}'),
+                            'type'  => 'addable-box',
+                            'box-options' => array(
+                                'icon' => array(
+                                    'type' => 'text',
+                                    'label' => __('icon name', '{domain}'),
+                                ),
+                                'text_item' => array(
+                                    'type' => 'textarea',
+                                    'label' => __('item text', '{domain}'),
+                                ),
                             ),
-                            'add-button-text' => __('Add input', '{domain}'),
+                            'value' => array(
+                                array(
+                                    'icon' => null,
+                                    'text_item' => null,
+                                ),
+                                // ...
+                            ),
+                            'template' => 'Add  the item with icon ', // box title
+                            'box-controls' => array( // buttons next to (x) remove box button
+                                // 'control-id' => '<small class="dashicons dashicons-smiley"></small>',
+                            ),
+                            'limit' => 0, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add item', '{domain}'),
                             'sortable' => true,
                         ),
                     ),

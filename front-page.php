@@ -73,29 +73,42 @@ $about_section_item = fw_get_db_customizer_option('about_section_item');
 
             <div class="row content">
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
-                    <p>
-                        <?php echo $about_section_left_text ?>
-                    </p>
+                    <?php echo $about_section_left_text ?>
+                    <!-- <ul>
+                    <?php
+                    if (!empty($about_section_item)) {
+                        foreach ($about_section_item as $item) {
+                            if (!empty($item))
+                    ?>
+                                <li><i class="ri-check-double-line"></i><?php echo $item ?></li>
+
+                        <?php
+                        }
+                    } else {
+                        $item = array('default_value');
+                        var_dump($item);
+                    }
+                        ?>
+                    </ul> -->
                     <ul>
                         <?php
                         if (!empty($about_section_item)) {
+                            // var_dump($item);
                             foreach ($about_section_item as $item) {
                                 if (!empty($item))
                         ?>
-                                <li><i class="ri-check-double-line"></i><?php echo $item ?></li>
+                                <li><i class="<?php echo $item['icon'] ?>"></i><?php echo $item['text_item'] ?></li>
 
                         <?php
                             }
                         } else {
-                            echo 'No logo found'; // پیام به‌جای خطا و لود نشدن سایت
+                            $item = array('default_value');
                         }
                         ?>
                     </ul>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                    <p>
-                        <?php echo $about_section_right_text ?>
-                    </p>
+                    <?php echo $about_section_right_text ?>
                     <a href="<?php echo esc_url($about_section_button_link) ?>" class="btn-learn-more"><?php echo $about_section_button ?></a>
                 </div>
             </div>
