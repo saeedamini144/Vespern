@@ -12,6 +12,7 @@ $about_section_right_text = fw_get_db_customizer_option('about_section_right_tex
 $about_section_left_text = fw_get_db_customizer_option('about_section_left_text');
 $about_section_button = fw_get_db_customizer_option('about_section_button');
 $about_section_button_link = fw_get_db_customizer_option('about_section_button_link');
+$about_section_item = fw_get_db_customizer_option('about_section_item');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -76,9 +77,19 @@ $about_section_button_link = fw_get_db_customizer_option('about_section_button_l
                         <?php echo $about_section_left_text ?>
                     </p>
                     <ul>
-                        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-                        <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-                        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                        <?php
+                        if (!empty($about_section_item)) {
+                            foreach ($about_section_item as $item) {
+                                if (!empty($item))
+                        ?>
+                                <li><i class="ri-check-double-line"></i><?php echo $item ?></li>
+
+                        <?php
+                            }
+                        } else {
+                            echo 'No logo found'; // پیام به‌جای خطا و لود نشدن سایت
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">

@@ -40,7 +40,7 @@
                         ),
                         'client_logo' => array(
                             'type' => 'addable-option',
-                            'value' => array(),
+                            'value' => array(null),
                             'label' => __('Add the client logo', '{domain}'),
                             'desc' => __('Add image size 150x150', '{domain}'),
                             'help' => __('PNG transparent 150x150px', '{domain}'),
@@ -87,7 +87,19 @@
                             'type' => 'wp-editor',
                             'value' => '',
                             'desc' => 'write the text here'
-                        )
+                        ),
+                        'about_section_item' => array(
+                            'label' => __('add text item', '{domain}'),
+                            'value' => array(null),
+                            'desc' => __('write the text', '{domain}'),
+                            'help' => __('add icon too', '{domain}'),
+                            'type' => 'addable-option',
+                            'option' => array(
+                                'type' => 'text',
+                            ),
+                            'add-button-text' => __('Add input', '{domain}'),
+                            'sortable' => true,
+                        ),
                     ),
                 )
             )
