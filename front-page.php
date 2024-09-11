@@ -13,6 +13,8 @@ $about_section_left_text = fw_get_db_customizer_option('about_section_left_text'
 $about_section_button = fw_get_db_customizer_option('about_section_button');
 $about_section_button_link = fw_get_db_customizer_option('about_section_button_link');
 $about_section_item = fw_get_db_customizer_option('about_section_item');
+$about_section_banner = fw_get_db_customizer_option('about_section_banner');
+// $about_secton_counter = fw_get_db_customizer_option('about_secton_counter');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -27,9 +29,14 @@ $about_section_item = fw_get_db_customizer_option('about_section_item');
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-                <img src="<?php echo $first_section_image['url'];
-                            // var_dump($first_section_image) 
+                <img src="<?php if (!empty($first_section_image)) {
+                                echo $first_section_image['url'];
+                                // var_dump($first_section_image) 
+                            } else {
+                                echo null;
+                            }
                             ?>" class="img-fluid animated" alt="">
+
             </div>
         </div>
     </div>
@@ -86,7 +93,7 @@ $about_section_item = fw_get_db_customizer_option('about_section_item');
                         }
                     } else {
                         $item = array('default_value');
-                        var_dump($item);
+                        // var_dump($item);
                     }
                         ?>
                     </ul> -->
@@ -122,43 +129,20 @@ $about_section_item = fw_get_db_customizer_option('about_section_item');
 
             <div class="row">
                 <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start" data-aos="fade-right" data-aos-delay="150">
-                    <img src="<?php bloginfo('template_url'); ?>/assets/img/counts-img.svg" alt="" class="img-fluid">
+                    <img src="<?php
+                                if (!empty($about_section_banner)) {
+                                    echo $about_section_banner['url'];
+                                    // var_dump($first_section_image) 
+                                } else {
+                                    echo null;
+                                }
+                                ?>" alt="" class="img-fluid">
                 </div>
 
                 <div class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
                     <div class="content d-flex flex-column justify-content-center">
                         <div class="row">
-                            <div class="col-md-6 d-md-flex align-items-md-stretch">
-                                <div class="count-box">
-                                    <i class="bi bi-emoji-smile"></i>
-                                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-md-flex align-items-md-stretch">
-                                <div class="count-box">
-                                    <i class="bi bi-journal-richtext"></i>
-                                    <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-md-flex align-items-md-stretch">
-                                <div class="count-box">
-                                    <i class="bi bi-clock"></i>
-                                    <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 d-md-flex align-items-md-stretch">
-                                <div class="count-box">
-                                    <i class="bi bi-award"></i>
-                                    <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
-                                </div>
-                            </div>
+                            <?php get_template_part('template-parts/aboutcounter', 'card'); ?>
                         </div>
                     </div><!-- End .content-->
                 </div>

@@ -86,7 +86,7 @@
                             'label' => 'change the text of the left text',
                             'type' => 'wp-editor',
                             'value' => '',
-                            'desc' => 'write the text here'
+                            'desc' => 'write the text here',
                         ),
                         // 'about_section_item' => array(
                         //     'label' => __('add text item', '{domain}'),
@@ -129,6 +129,56 @@
                             ),
                             'limit' => 0, // limit the number of boxes that can be added
                             'add-button-text' => __('Add item', '{domain}'),
+                            'sortable' => true,
+
+                        ),
+                        'about_section_banner' => array(
+                            'label' => __('add the about us sections banner', '{domain}'),
+                            'value' => array('value'),
+                            'type' => 'upload',
+                            'desc' => __('use the pic', '{domain}'),
+                            'help' => __('better use the transparnent image size 500*500', '{domain}'),
+                            'images_only' => true,
+                        ),
+                        'about_secton_counter' => array(
+                            'label' => __('add counter card content'),
+                            'desc' => __('add logo number counter and desc', '{domain}'),
+                            'help' => __('use remixicon, boxicon, bootstrap icon', '{domain}'),
+                            'type' => 'addable-box',
+                            'box-options' => array(
+                                'counter_icon' => array(
+                                    'type' => 'text',
+                                    'title' => __('add the icon', '{domain}'),
+                                    'label' => __('write counter icon', '{domain}')
+                                ),
+                                'counter_number' => array(
+                                    'type' => 'text',
+                                    'title' => __('add the number', '{domain}'),
+                                    'label' => __('write counter number', '{domain}')
+                                ),
+                                'counter_title' => array(
+                                    'type' => 'text',
+                                    'title' => __('add the title', '{domain}'),
+                                    'label' => __('write counter title', '{domain}')
+                                ),
+                                'counter_desc' => array(
+                                    'type' => 'wp-editor',
+                                    'title' => __('add the desc', '{domain}'),
+                                    'label' => __('write counter desc', '{domain}')
+                                ),
+                            ),
+                            'value' => array(
+                                'counter_icon' => null,
+                                'counter_number' => null,
+                                'counter_title' => null,
+                                'counter_desc' => null,
+                            ),
+                            'template' => 'add tab icon',
+                            'box-controls' => array( // buttons next to (x) remove box button
+                                // 'control-id' => '<small class="dashicons dashicons-smiley"></small>',
+                            ),
+                            'limit' => 0, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add counter', '{domain}'),
                             'sortable' => true,
                         ),
                     ),
