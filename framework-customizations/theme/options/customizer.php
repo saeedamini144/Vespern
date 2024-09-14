@@ -64,30 +64,35 @@
                             'value' => 'About Us',
                             'desc' => 'You can change the section title'
                         ),
+
                         'about_section_right_text' => array(
                             'label' => 'Chenge the text of the right text',
                             'type' => 'wp-editor',
                             'value' => '',
                             'desc' => 'Write your text here',
                         ),
+
                         'about_section_button' => array(
                             'label' => 'Change button text',
                             'type' => 'text',
                             'value' => 'Leran More',
                             'desc' => 'You can change button name'
                         ),
+
                         'about_section_button_link' => array(
                             'label' => 'Change button link',
                             'type' => 'text',
                             'value' => '#',
                             'desc' => 'You can change button link'
                         ),
+
                         'about_section_left_text' => array(
                             'label' => 'change the text of the left text',
                             'type' => 'wp-editor',
                             'value' => '',
                             'desc' => 'write the text here',
                         ),
+
                         // 'about_section_item' => array(
                         //     'label' => __('add text item', '{domain}'),
                         //     'value' => array('default_value'),
@@ -100,6 +105,7 @@
                         //     'add-button-text' => __('Add input', '{domain}'),
                         //     'sortable' => true,
                         // ),
+
                         'about_section_item' => array(
                             // 'attr'  => array('class' => 'custom-class', 'data-foo' => 'bar'),
                             'label' => __('add item ', '{domain}'),
@@ -132,6 +138,7 @@
                             'sortable' => true,
 
                         ),
+
                         'about_section_banner' => array(
                             'label' => __('add the about us sections banner', '{domain}'),
                             'value' => array('value'),
@@ -140,6 +147,7 @@
                             'help' => __('better use the transparnent image size 500*500', '{domain}'),
                             'images_only' => true,
                         ),
+
                         'about_secton_counter' => array(
                             'label' => __('add counter card content'),
                             'desc' => __('add logo number counter and desc', '{domain}'),
@@ -182,7 +190,58 @@
                             'sortable' => true,
                         ),
                     ),
-                )
+                ),
+                'services_section' => array(
+                    'title' => __('Services Section', '{domain}'),
+                    'options' => array(
+
+                        'services_section_title' => array(
+                            'label' => __('services title', '{domain}'),
+                            'type' => 'text',
+                            'value' => __('services', '{domain}'),
+                            'desc' => __('add the services section title', '{doamin}'),
+                        ),
+
+                        'services_section_text' => array(
+                            'labele' => __('services text', '{domain}'),
+                            'type' => 'wp-editor',
+                            'value' => null,
+                            'desc' => __('you can add your description of the services', '{domain}')
+                        ),
+
+                        'services_section_card' => array(
+                            'label' => __('services card content', '{domain}'),
+                            'desc' => __('you must add icon title content', '{domain}'),
+                            'help' => __('use remixicon bootstrapicon fo the card services', '{domain}'),
+                            'type' => 'addable-box',
+                            'box-options' => array(
+                                'services_icon' => array(
+                                    'title' => __('write your icon name', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => 'default-icon', // مقدار پیش‌فرض
+                                ),
+                                'services_title' => array(
+                                    'title' => __('write the card title', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => 'default title', // مقدار پیش‌فرض
+                                ),
+                                'services_card_desc' => array(
+                                    'title' => __('write the desc card services', '{domain}'),
+                                    'type' => 'wp-editor',
+                                    'value' => 'default description', // مقدار پیش‌فرض
+                                ),
+                            ),
+                            'attr' => array(),
+                            'template' => 'card services {{- services_title }}', // box title
+                            // 'box-controls' => array( // buttons next to (x) remove box button
+                            //     'control-id' => '<small class="dashicons dashicons-smiley"></small>',
+                            // ),
+                            'limit' => 0, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add card content', '{domain}'),
+                            'sortable' => true,
+                        ),
+                    ),
+                ),
             )
         )
     );

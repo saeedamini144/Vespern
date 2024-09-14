@@ -21,6 +21,6 @@ $about_secton_counter = fw_get_db_customizer_option('about_secton_counter');
 <?php
     }
 } else {
-    // echo ;
+    return  null;
 }
 ?>

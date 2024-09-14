@@ -163,7 +163,8 @@ $services_section_text = fw_get_db_customizer_option('services_section_text');
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                <?php get_template_part('template-parts/cardservices', 'service') ?>
+                <!-- <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon"><i class="bx bxl-dribbble"></i></div>
                         <h4 class="title"><a href="">Lorem Ipsum</a></h4>
@@ -193,7 +194,7 @@ $services_section_text = fw_get_db_customizer_option('services_section_text');
                         <h4 class="title"><a href="">Nemo Enim</a></h4>
                         <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
