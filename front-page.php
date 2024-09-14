@@ -15,6 +15,8 @@ $about_section_button_link = fw_get_db_customizer_option('about_section_button_l
 $about_section_item = fw_get_db_customizer_option('about_section_item');
 $about_section_banner = fw_get_db_customizer_option('about_section_banner');
 // $about_secton_counter = fw_get_db_customizer_option('about_secton_counter');
+$services_section_title = fw_get_db_customizer_option('services_section_title');
+$services_section_text = fw_get_db_customizer_option('services_section_text');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -156,8 +158,8 @@ $about_section_banner = fw_get_db_customizer_option('about_section_banner');
         <div class="container">
 
             <div class="section-title" data-aos="fade-up">
-                <h2>Services</h2>
-                <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fug</p>
+                <h2><?php echo $services_section_title; ?></h2>
+                <p><?php echo $services_section_text; ?></p>
             </div>
 
             <div class="row">
