@@ -1,4 +1,7 @@
  <?php
+
+    use function PHPSTORM_META\type;
+
     $options = array(
         'panel_1' => array(
             'title' => __('Home edit', '{domain}'),
@@ -53,6 +56,7 @@
                         )
                     )
                 ),
+
                 // حذف تعریف اضافی options
                 'aboutus_section' => array(
                     'title' => __('About Us Section', '{domain}'),
@@ -191,6 +195,7 @@
                         ),
                     ),
                 ),
+
                 'services_section' => array(
                     'title' => __('Services Section', '{domain}'),
                     'options' => array(
@@ -238,6 +243,55 @@
                             // ),
                             'limit' => 0, // limit the number of boxes that can be added
                             'add-button-text' => __('Add card content', '{domain}'),
+                            'sortable' => true,
+                        ),
+                    ),
+                ),
+
+                'featur_section' => array(
+                    'title' => __('Featur Section', '{domain}'),
+                    'options' => array(
+                        'featur_section_title' => array(
+                            'label' => __('add the featur sections title', '{domain}'),
+                            'type' => 'text',
+                            'value' => 'Features',
+                            'desc' => __('add the feature secction title', '{domain}')
+                        ),
+
+                        'featur_section-desc' => array(
+                            'label' => __('add the featur sections desc', '{domain}'),
+                            'type' => 'wp-editor',
+                            'value' => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem',
+                            'desc' => __('add the feature secction desc', '{domain}')
+                        ),
+
+                        'featur_section_icon' => array(
+                            'label' => __('add the icon with the description', '{domain}'),
+                            'desc' => __('add the title and the icon', '{domain}'),
+                            'help' => __('use https://remixicon.com/', '{domain}'),
+                            'type' => 'addable-box',
+                            'box-options' => array(
+                                'featur_icon' => array(
+                                    'label' => __('write the icon name', '{domain}'),
+                                    'type' => 'text'
+                                ),
+                                'featur_icon_color' => array(
+                                    'label' => __('choose the icon color', '{domain}'),
+                                    'type' => 'color-picker',
+                                    'value' => '#FFFF'
+                                ),
+                                'featur_icon_title' => array(
+                                    'label' => __('write the icon title', '{domain}'),
+                                    'type' => 'text'
+                                ),
+                            ),
+                            'attr' => array(),
+                            'template' => 'icon card featur {{- featur_icon_title }}', // box title
+                            // 'box-controls' => array( // buttons next to (x) remove box button
+                            //     'control-id' => '<small class="dashicons dashicons-smiley"></small>',
+                            // ),
+                            'limit' => 0, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add icon content', '{domain}'),
                             'sortable' => true,
                         ),
                     ),
