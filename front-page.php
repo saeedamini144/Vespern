@@ -174,7 +174,8 @@ $services_section_text = fw_get_db_customizer_option('services_section_text');
         <div class="container">
 
             <div class="row">
-                <div class="col-md-6 d-flex align-items-stretch">
+                <?php get_template_part('template-parts/portfolio', 'card') ?>
+                <!-- <div class="col-md-6 d-flex align-items-stretch">
                     <div class="card" style='background-image: url("<?php bloginfo('template_url'); ?>/assets/img/more-services-1.jpg");' data-aos="fade-up" data-aos-delay="100">
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Lobira Duno</a></h5>
@@ -210,7 +211,7 @@ $services_section_text = fw_get_db_customizer_option('services_section_text');
                             <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
