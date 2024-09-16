@@ -296,6 +296,61 @@
                         ),
                     ),
                 ),
+
+                'testimonial_section' => array(
+                    'title' => __('Testimonial Section', '{domain}'),
+                    'options' => array(
+
+                        'testimonial_section_title' => array(
+                            'label' => __('add the testimonial sections title', '{domain}'),
+                            'type' => 'text',
+                            'value' => 'testimoniales',
+                            'desc' => __('add the testimonial secction title', '{domain}')
+                        ),
+
+                        'testimonial_section_desc' => array(
+                            'label' => __('add the testimonial sections desc', '{domain}'),
+                            'type' => 'wp-editor',
+                            'value' => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem',
+                            'desc' => __('add the testimonial section desc', '{domain}')
+                        ),
+
+                        'testimonial_card' => array(
+                            'label' => __('add the testimonial', '{domain}'),
+                            'desc' => __('add the testimonial content', '{domain}'),
+                            'help' => __('use 400*400 px pic/', '{domain}'),
+                            'type' => 'addable-box',
+                            'box-options' => array(
+                                'testimonial_pic' => array(
+                                    'label' => __('Upload the image', '{domain}'),
+                                    'type' => 'upload',
+                                    'images_only' => true
+                                ),
+                                'testimonial_name' => array(
+                                    'label' => __('write the testimonial name', '{domain}'),
+                                    'type' => 'text'
+                                ),
+                                'testimonial_position' => array(
+                                    'label' => __('choose the icon color', '{domain}'),
+                                    'type' => 'text',
+                                ),
+                                'testimonial_desc' => array(
+                                    'label' => __('write the icon title', '{domain}'),
+                                    'type' => 'wp-editor'
+                                ),
+                            ),
+                            'attr' => array(),
+                            'template' => 'testimonial {{- testimonial }}', // box title
+                            // 'box-controls' => array( // buttons next to (x) remove box button
+                            //     'control-id' => '<small class="dashicons dashicons-smiley"></small>',
+                            // ),
+                            'limit' => 0, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add testimonial content', '{domain}'),
+                            'sortable' => true,
+                        ),
+                    ),
+
+                ),
             )
         )
     );

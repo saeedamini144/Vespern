@@ -18,7 +18,9 @@ $about_section_banner = fw_get_db_customizer_option('about_section_banner');
 $services_section_title = fw_get_db_customizer_option('services_section_title');
 $services_section_text = fw_get_db_customizer_option('services_section_text');
 $featur_section_title = fw_get_db_customizer_option('featur_section_title');
-$featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
+$featur_section_desc = fw_get_db_customizer_option('featur_section_desc');
+$testimonial_section_title = fw_get_db_customizer_option('testimonial_section_title');
+$testimonial_section_desc = fw_get_db_customizer_option('testimonial_section_desc');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -203,14 +205,15 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
         <div class="container">
 
             <div class="section-title" data-aos="fade-up">
-                <h2>Testimonials</h2>
-                <p>Magnam dolores commodi suscipit eum quidem consectetur velit</p>
+                <h2><?php echo $testimonial_section_title; ?></h2>
+                <p><?php echo $testimonial_section_desc; ?></>
             </div>
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
+                    <?php get_template_part('template-parts/testimonials', 'card'); ?>
 
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
@@ -223,9 +226,9 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
                                 </p>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div>End testimonial item -->
 
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
@@ -238,8 +241,8 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
                                 </p>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
-
+                    </div> -->
+                    <!-- 
                     <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
@@ -253,9 +256,9 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
                                 </p>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div> -->
 
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
@@ -268,9 +271,9 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
                                 </p>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div> -->
 
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <div class="testimonial-wrap">
                             <div class="testimonial-item">
                                 <img src="<?php bloginfo('template_url'); ?>/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
@@ -283,7 +286,7 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section-desc');
                                 </p>
                             </div>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div>End testimonial item -->
 
                 </div>
                 <div class="swiper-pagination"></div>
