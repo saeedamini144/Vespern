@@ -21,6 +21,7 @@ $featur_section_title = fw_get_db_customizer_option('featur_section_title');
 $featur_section_desc = fw_get_db_customizer_option('featur_section_desc');
 $testimonial_section_title = fw_get_db_customizer_option('testimonial_section_title');
 $testimonial_section_desc = fw_get_db_customizer_option('testimonial_section_desc');
+$blog_section_category = fw_get_db_customizer_option('blog_section_category');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -212,6 +213,7 @@ $testimonial_section_desc = fw_get_db_customizer_option('testimonial_section_des
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
                     <?php get_template_part('template-parts/testimonials', 'card'); ?>
+
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -219,155 +221,89 @@ $testimonial_section_desc = fw_get_db_customizer_option('testimonial_section_des
         </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Blog Section ======= -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-
             <div class="section-title" data-aos="fade-up">
                 <h2>Portfolio</h2>
                 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
             </div>
-
-            <div class="row" data-aos="fade-up" data-aos-delay="200">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-card">Card</li>
-                        <li data-filter=".filter-web">Web</li>
-                    </ul>
+            <?php if (!empty($blog_section_category)) { ?>
+                <div class="row" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <?php foreach ($blog_section_category as $category_id) {
+                                $category = get_term($category_id, 'category');
+                            ?>
+                                <li data-filter=".filter-<?php echo $category->slug ?>"><?php echo $category->name ?></li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+                <?php
+                // کوئری برای دریافت پست‌ها از دسته‌های انتخاب‌شده
+                $args = new WP_Query(array(
+                    'post_type' => 'post',
+                    'posts_per_page' => -1, // نمایش تمام پست‌ها، اگر محدودیت خاصی می‌خواهید، مقدار خاصی تعیین کنید
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'category',
+                            'field' => 'term_id',
+                            'terms' => $blog_section_category, // استفاده از دسته‌بندی‌های انتخاب‌شده
+                        ),
+                    ),
+                ));
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                if ($args->have_posts()) {
+                    while ($args->have_posts()) {
+                        $args->the_post();
+                        // دریافت دسته‌بندی هر پست
+                        $categories = get_the_category();
+                        $category_class = '';
+                        foreach ($categories as $cat) {
+                            $category_class .= 'filter-' . $cat->slug . ' ';
+                        }
+                ?>
+
+                        <div class="col-lg-4 col-md-6 portfolio-item <?php echo $category_class; ?>">
+                            <div class="card-post">
+                                <div class="card-img-holder">
+                                    <img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title() ?>">
+                                </div>
+                                <a href="<?php the_permalink() ?>">
+                                    <h3 class="blog-title"><?php the_title() ?></h3>
+                                </a>
+                                <span class="blog-time"> <?php the_time('j F, Y') ?></span>
+                                <div class="description">
+                                    <?php if (has_excerpt()) {
+                                        the_excerpt();
+                                    } ?>
+                                </div>
+                                <div class="options">
+                                    <a class="read-more" href="<?php the_permalink() ?>">
+                                        <span>Read Full Blog</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-right pl-2 iconmove" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                        </svg>
+                                    </a>
+                                    <button class="btn-card"><?php the_category() ?></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 3</h4>
-                            <p>Web</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                            <p>App</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 2</h4>
-                            <p>Card</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 2</h4>
-                            <p>Web</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 3</h4>
-                            <p>App</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 1</h4>
-                            <p>Card</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Card 3</h4>
-                            <p>Card</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <div class="portfolio-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Web 3</h4>
-                            <p>Web</p>
-                            <div class="portfolio-links">
-                                <a href="<?php bloginfo('template_url'); ?>/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <?php
+                    }
+                } else {
+                    echo '<p>هیچ پستی یافت نشد.</p>';
+                }
+                wp_reset_postdata();
+                ?>
             </div>
+
 
         </div>
     </section><!-- End Portfolio Section -->

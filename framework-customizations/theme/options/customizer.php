@@ -351,6 +351,23 @@
                     ),
 
                 ),
+
+                'Blog_section_setting' => array(
+                    'label' => __('Blog Section', '{domain}'),
+                    'options' => array(
+
+                        'blog_section_category' => array(
+                            'label' => __('Choose Post Categories', '{domain}'),
+                            'type' => 'multi-select',  // نوع انتخاب چندگانه
+                            'value' => array(),  // مقدار پیش‌فرض
+                            'help' => __('Choose your desired categories', '{domain}'),  // راهنمایی
+                            'population' => 'taxonomy',  // استفاده از taxonomy برای پر کردن
+                            'source' => 'category',  // استفاده از دسته‌بندی‌ها (categories)
+                            'limit' => 100  // حداکثر تعداد آیتم‌های قابل انتخاب
+                        ),
+                    ),
+                ),
+
             )
         )
     );
