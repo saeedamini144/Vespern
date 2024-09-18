@@ -22,6 +22,10 @@ $featur_section_desc = fw_get_db_customizer_option('featur_section_desc');
 $testimonial_section_title = fw_get_db_customizer_option('testimonial_section_title');
 $testimonial_section_desc = fw_get_db_customizer_option('testimonial_section_desc');
 $blog_section_category = fw_get_db_customizer_option('blog_section_category');
+$blog_section_title = fw_get_db_customizer_option('blog_section_title');
+$blog_section_desc = fw_get_db_customizer_option('blog_section_desc');
+$Team_section_title = fw_get_db_customizer_option('Team_section_title');
+$Team_section_desc = fw_get_db_customizer_option('Team_section_desc');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -225,8 +229,8 @@ $blog_section_category = fw_get_db_customizer_option('blog_section_category');
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>Portfolio</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+                <h2><?php echo $blog_section_title ?></h2>
+                <p><?php echo $blog_section_desc ?></p>
             </div>
             <?php if (!empty($blog_section_category)) { ?>
                 <div class="row" data-aos="fade-up" data-aos-delay="200">
@@ -298,7 +302,7 @@ $blog_section_category = fw_get_db_customizer_option('blog_section_category');
                 <?php
                     }
                 } else {
-                    echo '<p>هیچ پستی یافت نشد.</p>';
+                    echo '<p>No Post Found</p>';
                 }
                 wp_reset_postdata();
                 ?>
@@ -313,83 +317,13 @@ $blog_section_category = fw_get_db_customizer_option('blog_section_category');
         <div class="container">
 
             <div class="section-title" data-aos="fade-up">
-                <h2>Team</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+                <h2><?php echo $Team_section_title ?></h2>
+                <p><?php echo $Team_section_desc ?></p>
             </div>
 
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member-img">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member-img">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Sarah Jhonson</h4>
-                            <span>Product Manager</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member-img">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>CTO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="400">
-                        <div class="member-img">
-                            <img src="<?php bloginfo('template_url'); ?>/assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Amanda Jepson</h4>
-                            <span>Accountant</span>
-                        </div>
-                    </div>
-                </div>
+                <?php get_template_part('template-parts/Team', 'card') ?>
 
             </div>
 

@@ -356,6 +356,20 @@
                     'label' => __('Blog Section', '{domain}'),
                     'options' => array(
 
+                        'blog_section_title' => array(
+                            'label' => __('Writ the title', '{domain}'),
+                            'type' => 'text',
+                            'value' => 'Blog',
+                            'desc' => __('You can change the title', '{domain}'),
+                        ),
+
+                        'blog_section_desc' => array(
+                            'label' => __('Writ the desc', '{domain}'),
+                            'type' => 'wp-editor',
+                            'value' => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem',
+                            'desc' => __('You can change the desc', '{domain}'),
+                        ),
+
                         'blog_section_category' => array(
                             'label' => __('Choose Post Categories', '{domain}'),
                             'type' => 'multi-select',  // نوع انتخاب چندگانه
@@ -367,6 +381,82 @@
                         ),
                     ),
                 ),
+
+                'Team_section_setting' => array(
+                    'label' => __('Team Setting', '{domain}'),
+                    'options' => array(
+
+                        'Team_section_title' => array(
+                            'label' => __('Write the title', '{domain}'),
+                            'type' => 'text',
+                            'value' => 'Team',
+                            'desc' => __('You can change the title', '{domain}'),
+                        ),
+
+                        'Team_section_desc' => array(
+                            'label' => __('Write the description', '{domain}'),
+                            'type' => 'wp-editor',
+                            'value' => 'Necessitatibus eius consequatur ex aliquid fuga eum quidem',
+                            'desc' => __('You can change the description', '{domain}'),
+                        ),
+
+                        'Team_card' => array(
+                            'label' => __('Add the Team card content', '{domain}'),
+                            'type' => 'addable-box',
+                            'desc' => __('Add the content of the team card', '{domain}'),
+                            'box-options' => array(
+
+                                'Team_img' => array(
+                                    'label' => __('Add the image', '{domain}'),
+                                    'type' => 'upload',
+                                    'image_only' => true,
+                                    'value' => array(),
+
+                                ),
+
+                                'Team_name' => array(
+                                    'label' => __('Write the name', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => ' ',
+                                ),
+
+                                'Team_postion' => array(
+                                    'label' => __('Write the postion', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => ' ',
+                                ),
+
+                                'Team_social' => array(
+                                    'label' => __('Add social link', '{domain}'),
+                                    'type' => 'addable-box',
+                                    'box-options' => array(
+
+                                        'Team_social_icon' => array(
+                                            'label' => __('Write the social name', '{domain}'),
+                                            'type' => 'text',
+                                            'value' => ' ',
+                                        ),
+
+                                        'Team_social_link' => array(
+                                            'label' => __('Write the social link', '{domain}'),
+                                            'type' => 'text',
+                                            'value' => ' ',
+                                        ),
+                                    ),
+                                    'template' => 'Team Card Social {{- Team_social_icon }}', // box title
+                                    'limit' => 4, // limit the number of boxes that can be added
+                                    'add-button-text' => __('Add Social', '{domain}'),
+                                    'sortable' => true,
+                                ),
+                            ),
+                            'template' => 'Team Card {{- Team_name }}', // box title
+                            'limit' => 0, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add Team Card', '{domain}'),
+                            'sortable' => true,
+                        ),
+                    ),
+                ),
+
 
             )
         )
