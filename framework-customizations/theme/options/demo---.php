@@ -1,4 +1,4 @@
-<?php if ( ! defined( 'FW' ) ) {
+<!-- <?php if ( ! defined( 'FW' ) ) {
 	die( 'Forbidden' );
 }
 
@@ -1141,4 +1141,4 @@ $options = array(
 		),
 		'show_borders' => false,
 	),
-);
+); -->

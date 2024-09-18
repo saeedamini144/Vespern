@@ -1,20 +1,20 @@
-<?php if ( ! defined( 'FW' ) ) {
-	die( 'Forbidden' );
-}
+ <?php if (! defined('FW')) {
+		die('Forbidden');
+	}
 
-$manifest = array();
+	$manifest = array();
 
-$manifest['id'] = 'scratch';
+	$manifest['id'] = 'scratch';
 
-$manifest['supported_extensions'] = array(
-	'page-builder' => array(),
-	'slider' => array(),
-	'styling' => array(),
-	'breadcrumbs' => array(),
-	'events' => array(),
-	'feedback' => array(),
-	'learning' => array(),
-	'megamenu' => array(),
-	'portfolio' => array(),
-	'sidebars' => array(),
-);
+	$manifest['supported_extensions'] = array(
+		'page-builder' => array(),
+		'slider' => array(),
+		'styling' => array(),
+		'breadcrumbs' => array(),
+		'events' => array(),
+		'feedback' => array(),
+		'learning' => array(),
+		'megamenu' => array(),
+		'portfolio' => array(),
+		'sidebars' => array(),
+	);
