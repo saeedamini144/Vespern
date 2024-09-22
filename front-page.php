@@ -26,6 +26,8 @@ $blog_section_title = fw_get_db_customizer_option('blog_section_title');
 $blog_section_desc = fw_get_db_customizer_option('blog_section_desc');
 $Team_section_title = fw_get_db_customizer_option('Team_section_title');
 $Team_section_desc = fw_get_db_customizer_option('Team_section_desc');
+$price_section_title = fw_get_db_customizer_option('price_section_title');
+$price_section_desc = fw_get_db_customizer_option('price_section_desc');
 ?>
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -335,8 +337,8 @@ $Team_section_desc = fw_get_db_customizer_option('Team_section_desc');
         <div class="container">
 
             <div class="section-title">
-                <h2>Pricing</h2>
-                <p>Sit sint consectetur velit nemo qui impedit suscipit alias ea</p>
+                <h2><?php echo $price_section_title ?></h2>
+                <p><?php echo $price_section_desc ?></p>
             </div>
 
             <div class="row">

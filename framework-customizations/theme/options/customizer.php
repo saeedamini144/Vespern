@@ -457,6 +457,25 @@
                     ),
                 ),
 
+                'Price_section' => array(
+                    'label' => __('Price Section', '{domain}'),
+                    'options' => array(
+
+                        'price_section_title' => array(
+                            'label' => __('Write the title', '{domain}'),
+                            'type' => 'text',
+                            'value' => 'Pricing',
+                            'desc' => __('write the title', 'write the'),
+                        ),
+
+                        'price_section_desc' => array(
+                            'label' => __('wirte the desc', '{domain}'),
+                            'type' => ('wp-editor'),
+                            'value' => 'Sit sint consectetur velit nemo qui impedit suscipit alias ea',
+                            'desc' => __('write description fot the price sections'),
+                        ),
+                    ),
+                ),
 
             )
         )
