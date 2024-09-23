@@ -470,7 +470,7 @@
 
                         'price_section_desc' => array(
                             'label' => __('wirte the desc', '{domain}'),
-                            'type' => ('wp-editor'),
+                            'type' => 'wp-editor',
                             'value' => 'Sit sint consectetur velit nemo qui impedit suscipit alias ea',
                             'desc' => __('write description fot the price sections'),
                         ),
@@ -544,6 +544,49 @@
                             'template' => 'price_item {{- package_name }}', // box title
                             'limit' => 3, // limit the number of boxes that can be added
                             'add-button-text' => __('Add price_item', '{domain}'),
+                            'sortable' => true,
+                        ),
+
+                    ),
+                ),
+
+                'faq_section' => array(
+                    'label' => __('Faq section', '{domain}'),
+                    'options' => array(
+
+                        'faq_section_title' => array(
+                            'label' => __('Faq section Title', '{domain}'),
+                            'type' => 'text',
+                            'value' => 'Frequently Asked Questions',
+                            'desc' => __('add the title section', '{domain}'),
+                        ),
+
+                        'faq_card' => array(
+                            'label' => __('add faq content', '{domain}'),
+                            'type' => 'addable-box',
+                            'box-options' => array(
+
+                                'faq_icon' => array(
+                                    'label' => __('write the icon name', '{domain}'),
+                                    'type' => 'text',
+                                    'desc' => __('choose boxiicon and remixicon', '{domain}'),
+                                ),
+
+                                'faq_question' => array(
+                                    'label' => __('write the faq title or question'),
+                                    'type' => 'text',
+                                    'desc' => __('write the question', '{domain}'),
+                                ),
+
+                                'faq_answer' => array(
+                                    'label' => __('write the answer of the faq', '{domain}'),
+                                    'type' => 'wp-editor',
+                                    'desc' => __('write the answer of the questions')
+                                ),
+                            ),
+                            'template' => ' add Faq {{- faq_question}} ',
+                            'limit' => 0,
+                            'add-button-text' => __('add faq', '{domain}'),
                             'sortable' => true,
                         ),
 
