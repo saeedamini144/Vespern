@@ -1247,8 +1247,7 @@ section {
   padding-right: 4px;
 }
 
-.pricing .box ul .na {
-  color: #ccc;
+.line-through {
   text-decoration: line-through;
 }
 
