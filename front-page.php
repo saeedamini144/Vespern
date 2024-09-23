@@ -342,8 +342,9 @@ $price_section_desc = fw_get_db_customizer_option('price_section_desc');
             </div>
 
             <div class="row">
+                <?php get_template_part('template-parts/price', 'card'); ?>
 
-                <div class="col-lg-4 col-md-6">
+                <!-- <div class="col-lg-4 col-md-6">
                     <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
                         <h3>Free</h3>
                         <h4><sup>$</sup>0<span> / month</span></h4>
@@ -392,7 +393,7 @@ $price_section_desc = fw_get_db_customizer_option('price_section_desc');
                             <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 

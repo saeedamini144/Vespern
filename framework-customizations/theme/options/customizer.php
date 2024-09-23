@@ -465,7 +465,7 @@
                             'label' => __('Write the title', '{domain}'),
                             'type' => 'text',
                             'value' => 'Pricing',
-                            'desc' => __('write the title', 'write the'),
+                            'desc' => __('write the title', '{domain}'),
                         ),
 
                         'price_section_desc' => array(
@@ -474,6 +474,79 @@
                             'value' => 'Sit sint consectetur velit nemo qui impedit suscipit alias ea',
                             'desc' => __('write description fot the price sections'),
                         ),
+
+                        'price_card' => array(
+                            'label' => __('package name', '{domain}'),
+                            'desc' => __('you can add price card content', '{domain}'),
+                            'type' => 'addable-box',
+                            'box-options' => array(
+
+                                'package_name' => array(
+                                    'label' => __('add package name', '{domain}'),
+                                    'type' => 'text'
+                                ),
+
+                                'money_sign' => array(
+                                    'label' => __('Money Sign', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => '$'
+                                ),
+
+                                'money_number' => array(
+                                    'label' => __('write number of the money', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => '0'
+                                ),
+
+                                'money_time' => array(
+                                    'label' => __('write the time per pay', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => 'month'
+                                ),
+
+                                'price_item' => array(
+                                    'label' => __('add items', '{domain}'),
+                                    'type' => 'addable-box',
+                                    // 'value' => array('Value 1', 'Value 2', 'Value 3'),
+                                    // 'attr'  => array('class' => 'custom-class', 'data-foo' => 'bar'),
+                                    'desc'  => __('add the item of the price card', '{domain}'),
+                                    'box-options' => array(
+                                        'price_item_data' => array(
+                                            'label' => __('item data', '{domain}'),
+                                            'type' => 'text'
+                                        ),
+                                        'line_through' => array(
+                                            'type' => 'checkbox',
+                                            'value' => false,
+                                            // 'attr'  => array( 'class' => 'custom-class', 'data-foo' => 'bar' ),
+                                        ),
+                                    ),
+                                    'template' => 'add item {{- price_item_data }}', // box title
+                                    'limit' => 0, // limit the number of boxes that can be added
+                                    'add-button-text' => __('add item', '{domain}'),
+                                    'sortable' => true,
+                                ),
+
+                                'price_button' => array(
+                                    'label' => __('add button text' . '{domain}'),
+                                    'type' => 'text',
+                                    'value' => 'Buy Package',
+                                    'desc' => __('add the button text', '{domain}'),
+                                ),
+                                'price_button_link' => array(
+                                    'label' => __('add the nutton link', '{domain}'),
+                                    'type' => 'text',
+                                    'value' => '#',
+                                    'desc' => __('add the button link', '{domain}'),
+                                ),
+
+                            ),
+                            'template' => 'price_item {{- package_name }}', // box title
+                            'limit' => 3, // limit the number of boxes that can be added
+                            'add-button-text' => __('Add price_item', '{domain}'),
+                            'sortable' => true,
+                        ),
+
                     ),
                 ),
 
