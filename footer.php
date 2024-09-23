@@ -4,9 +4,9 @@
      <section id="contact" class="contact">
          <div class="container">
 
-             <div class="section-title" data-aos="fade-up">
+             <!-- <div class="section-title" data-aos="fade-up">
                  <h2>Contact Us</h2>
-             </div>
+             </div> -->
 
              <div class="row">
 
