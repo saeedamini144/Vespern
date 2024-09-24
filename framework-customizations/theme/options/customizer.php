@@ -3,8 +3,8 @@
     use function PHPSTORM_META\type;
 
     $options = array(
-        'panel_1' => array(
-            'title' => __('Home edit', '{domain}'),
+        'Home Edit' => array(
+            'title' => __('Home Edit', '{domain}'),
             'options' => array(
                 'first_section' => array(
                     'title' => __('First section', '{domain}'),
@@ -594,5 +594,90 @@
                 ),
 
             )
-        )
+        ),
+
+        'Footer Edite' => array(
+            'label' => __('Footer Edite', '{domain}'),
+            'options' => array(
+
+                'footer_first_column' => array(
+                    'title' => __('First Column', '{domain}'),
+                    'options' => array(
+
+                        'footer_logo' => array(
+                            'label' => __('add Logo  to footer', '{domain}'),
+                            'type' => 'upload',
+                            'desc' => __('upload logo for the footer', '{domain}'),
+                            // 'value'=>array(),
+                            'images_only' => true,
+                        ),
+
+                        'footer_first_column_desc' => array(
+                            'label' => __('add desc', '{domain}'),
+                            'type' => 'wp-editor',
+                            'desc' => __('write desc for the first column', '{domain}'),
+                            // 'value' => 'test',
+                        ),
+
+                        'footer_icon_social' => array(
+                            'label' => __('add social icon', '{domain}'),
+                            'type' => 'addable-box',
+                            'help' => __('Use remixicon and boxiicon library', '{domain}'),
+                            'desc' => __('use icon name for social and add link', '{domain}'),
+                            'box-options' => array(
+
+                                'social_icon_name' => array(
+                                    'label' => __('write the icon name', '{domain}'),
+                                    'type' => 'text',
+                                ),
+
+                                'social_icon_link' => array(
+                                    'label' => __('add the icon link', '{domain}'),
+                                    'type' => 'text',
+                                ),
+                            ),
+                            'template' => ' add social {{-social_icon_name}} ',
+                            'limit' => 0,
+                            'add-button-text' => __('add social', '{domain}'),
+                            'sortable' => true,
+                        ),
+                    ),
+                ),
+
+                'footer_second_column' => array(
+                    'title' => __('Second Column', '{domain}'),
+                    'options' => array(
+
+                        'footer_contact_icon' => array(
+
+                            'label' => __('add contact ', '{domain}'),
+                            'type' => 'addable-box',
+                            'desc' => __('choose the icon and write content', '{domain}'),
+                            'box-options' => array(
+
+                                'choose_icon' => array(
+                                    'label' => __('write icon name', '{domain}'),
+                                    'type' => 'text'
+                                ),
+
+                                'icon_content' => array(
+                                    'label' => __('write content', '{domain}'),
+                                    'type' => 'text'
+                                ),
+
+                            ),
+                            'template' => 'add icon {{-choose_icon}}',
+                            'limit' => 0,
+                            'add-button-text' => __('add icon contact', '{domain}'),
+                            'sortable' => true,
+                        ),
+
+                        'copyright' => array(
+                            'label' => __('write the copyright', '{domain}'),
+                            'type' => 'wp-editor'
+                        ),
+                    ),
+                ),
+            ),
+        ),
     );

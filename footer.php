@@ -1,3 +1,10 @@
+ <?php
+    $footer_logo = fw_get_db_customizer_option('footer_logo');
+    $footer_first_column_desc = fw_get_db_customizer_option('footer_first_column_desc');
+    $footer_icon_social = fw_get_db_customizer_option('footer_icon_social');
+    $footer_contact_icon = fw_get_db_customizer_option('footer_contact_icon');
+    $copyright = fw_get_db_customizer_option('copyright');
+    ?>
  <!-- ======= Footer ======= -->
  <footer id="footer">
      <!-- ======= Contact Section ======= -->
@@ -8,38 +15,51 @@
                  <h2>Contact Us</h2>
              </div> -->
 
-             <div class="row">
+             <div class="row  d-flex align-items-center">
 
                  <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                      <div class="contact-about">
-                         <h3>Vesperr</h3>
-                         <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                         <figure>
+                             <?php
+                                if (!empty($footer_logo['url'])) {
+                                ?>
+                                 <img src="<?php echo $footer_logo['url'] ?>" alt="footer logo">
+                             <?php
+                                } else {
+                                }
+                                ?>
+                         </figure>
+                         <p><?php echo $footer_first_column_desc ?></p>
                          <div class="social-links">
-                             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                             <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                             <?php
+                                if (!empty($footer_icon_social)) {
+                                    foreach ($footer_icon_social as $social_icon) {
+                                ?>
+                                     <a href="<?php echo $social_icon['social_icon_link'] ?>" class=""><i class="<?php echo $social_icon['social_icon_name'] ?>"></i></a>
+                             <?php
+                                    }
+                                } else {
+                                    echo ' ';
+                                }
+                                ?>
                          </div>
                      </div>
                  </div>
 
                  <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
                      <div class="info">
-                         <div>
-                             <i class="ri-map-pin-line"></i>
-                             <p>A108 Adam Street<br>New York, NY 535022</p>
-                         </div>
-
-                         <div>
-                             <i class="ri-mail-send-line"></i>
-                             <p>info@example.com</p>
-                         </div>
-
-                         <div>
-                             <i class="ri-phone-line"></i>
-                             <p>+1 5589 55488 55s</p>
-                         </div>
-
+                         <?php
+                            if (!empty($footer_contact_icon)) {
+                                foreach ($footer_contact_icon as $contact_icon) {
+                            ?>
+                                 <div>
+                                     <i class="<?php echo $contact_icon['choose_icon'] ?>"></i>
+                                     <p><?php echo $contact_icon['icon_content'] ?></p>
+                                 </div>
+                         <?php
+                                }
+                            }
+                            ?>
                      </div>
                  </div>
 
@@ -73,25 +93,10 @@
      <section>
          <div class="container">
              <div class="row d-flex align-items-center">
-                 <div class="col-lg-6 text-lg-left text-center">
+                 <div class="col-lg-12 text-lg-left text-center">
                      <div class="copyright">
-                         &copy; Copyright <strong>Vesperr</strong>. All Rights Reserved
+                         <?php echo $copyright ?>
                      </div>
-                     <div class="credits">
-                         <!-- All the links in the footer should remain intact. -->
-                         <!-- You can delete the links only if you purchased the pro version. -->
-                         <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
-                         Designed by <a href="mailto:saaed.amini@gmail.com">Saeed Amini</a>
-                     </div>
-                 </div>
-                 <div class="col-lg-6">
-                     <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                         <a href="#intro" class="scrollto">Home</a>
-                         <a href="#about" class="scrollto">About</a>
-                         <a href="#">Privacy Policy</a>
-                         <a href="#">Terms of Use</a>
-                     </nav>
                  </div>
              </div>
          </div>
