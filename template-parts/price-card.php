@@ -30,5 +30,4 @@ if (!empty($price_card)) {
 <?php
     }
 }
-
 ?>
