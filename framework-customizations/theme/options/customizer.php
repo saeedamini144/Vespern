@@ -1,7 +1,4 @@
  <?php
-
-    use function PHPSTORM_META\type;
-
     $options = array(
         'Home Edit' => array(
             'title' => __('Home Edit', '{domain}'),
